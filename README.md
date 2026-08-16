@@ -61,40 +61,6 @@ Build production:
 npm run build
 ```
 
-## Update Konten
-
-Hampir semua konten yang sering berubah udah dipisah ke folder `src/data/`,
-jadi gak perlu bongkar komponen buat edit teks:
-
-- **Info pribadi & kontak** → `src/data/profile.js`
-- **CV** → ganti file `src/data/260806 CV_Daffa_Pratama_2026.pdf` dengan file
-  CV asli (nama file boleh diganti, tinggal update import di `profile.js`)
-- **Tech stack / skills** → `src/data/skills.js`
-- **Data project** → `src/data/projects.js`
-
-### Ganti foto project
-
-Foto cover & screenshot masih placeholder generate otomatis, tinggal timpa
-file di `src/assets/images/` pakai nama yang **persis sama** biar gak perlu
-ubah kode sama sekali:
-
-```
-projek_rutan_ptk_cover.png            # cover project Rutan Pontianak (16:9)
-projek_skripsi_isk_cover.png          # cover project Skripsi ISK (16:9)
-security_lock.png                     # cover project Password Manager (object-contain)
-projek_pengelola_sandi_register.png   # screenshot layar Register (9:16)
-projek_pengelola_sandi_login.png      # screenshot layar Login (9:16)
-projek_pengelola_sandi_home.png       # screenshot layar Home (9:16)
-projek_pengelola_sandi_profile.png    # screenshot layar Profile (9:16)
-projek_pengelola_sandi_settings.png   # screenshot layar Settings (9:16)
-projek_pengelola_sandi_add_edit.png   # screenshot layar Tambah/Edit Sandi (9:16)
-projek_pengelola_sandi_detail.png     # screenshot layar Detail Sandi (9:16)
-projek_pengelola_sandi_reset.png      # screenshot layar Lupa Master Password (9:16)
-```
-
 ## Deploy
 
-Project ini di-deploy ke [Vercel](https://vercel.com/). Push ke branch utama
-di GitHub, lalu import repo-nya di Vercel — build command dan output
-directory otomatis kedetect dari `vite.config.js` (`npm run build`, output
-ke folder `dist`).
+Project ini di-deploy ke [Vercel](https://vercel.com/).
