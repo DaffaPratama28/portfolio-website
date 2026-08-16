@@ -4,7 +4,7 @@
 // Field yang sifatnya proper noun / data teknis (nama, email, link) tetep
 // string biasa karena gak perlu diterjemahin.
 
-import cvFile from "./260806 CV_Daffa_Pratama_2026.pdf";
+import cvFile from "/src/assets/CV_Daffa_Pratama_2026.pdf";
 
 export const profile = {
   name: "Daffa Pratama",
@@ -34,7 +34,10 @@ export const profile = {
 
   focusAreas: [
     { en: "Web Development (Full-stack)", id: "Web Development (Full-stack)" },
-    { en: "Mobile App Development (Android)", id: "Mobile Apps Development (Android)" },
+    {
+      en: "Mobile App Development (Android)",
+      id: "Mobile Apps Development (Android)",
+    },
     { en: "Machine Learning", id: "Machine Learning" },
   ],
 
