@@ -1,29 +1,25 @@
-// ============================================================================
 // App.jsx
-// Komponen root aplikasi. Tugasnya cuma menyusun urutan section-section
-// halaman utama (Navbar selalu di atas, lalu section-section berikutnya
-// akan ditambahkan berurutan sesuai anchor link di Navbar: #home, #about,
-// #projects, #contact).
-// ============================================================================
+// Root komponen, nyusun urutan section sesuai anchor link di Navbar:
+// #home -> #about -> #skills -> #projects -> #contact (Footer).
 
 import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
 import Hero from "./components/sections/Hero";
+import About from "./components/sections/About";
+import Skills from "./components/sections/Skills";
+import Projects from "./components/sections/Projects";
 
 function App() {
   return (
     <>
       <Navbar />
-
       <main>
         <Hero />
-        {/* Section berikutnya akan ditambahkan di sini:
-            <About />
-            <Skills />
-            <Projects />
-            <Contact />
-            <Footer />
-        */}
+        <About />
+        <Skills />
+        <Projects />
       </main>
+      <Footer />
     </>
   );
 }

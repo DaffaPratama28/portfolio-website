@@ -1,43 +1,37 @@
-/* ==========================================================================
-   GLOBAL STYLES — index.css
-   File ini adalah entry point CSS utama, di-import oleh main.jsx.
-   Menggunakan Tailwind CSS v4 (via plugin @tailwindcss/vite), jadi TIDAK
-   perlu file tailwind.config.js terpisah — semua kustomisasi tema
-   didefinisikan langsung di sini lewat directive @theme.
-   ========================================================================== */
+/* index.css — entry stylesheet, di-import lewat main.jsx.
+   Tailwind v4 lewat plugin @tailwindcss/vite, jadi semua konfigurasi
+   tema (warna, font) didefinisikan di sini pakai @theme, gak butuh
+   tailwind.config.js terpisah. */
 
 @import "tailwindcss";
 
-/* --------------------------------------------------------------------------
-   @theme — Mendefinisikan design token custom (warna, font).
-   Setiap variabel --color-xxx otomatis menjadi utility class Tailwind,
-   contoh: --color-primary -> bisa dipakai sebagai class "bg-primary",
-   "text-primary", "border-primary", dst.
-   -------------------------------------------------------------------------- */
+/* design tokens - charcoal + mustard palette */
 @theme {
-  /* Font family */
-  --font-heading: "Poppins", sans-serif; /* dipakai di semua heading (h1-h4) */
-  --font-body: "Inter", sans-serif; /* dipakai di body text */
+  --font-heading: "Sora", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 
-  /* Palet warna utama — tema dark dengan aksen indigo */
-  --color-primary: #6366f1; /* Indigo - warna aksen utama (tombol, link hover, highlight) */
-  --color-primary-dark: #4338ca; /* Indigo lebih gelap - untuk hover state tombol */
-  --color-dark: #0f172a; /* Background utama (slate-900) */
-  --color-dark-secondary: #1e293b; /* Background sekunder, untuk card/section selang-seling */
-  --color-light: #f8fafc; /* Warna teks utama (hampir putih) */
-  --color-muted: #94a3b8; /* Warna teks sekunder/deskripsi (abu-abu) */
+  /* base */
+  --color-bg: #121214;           /* background utama, charcoal gelap */
+  --color-surface: #1c1b1f;      /* background section/card selang-seling */
+  --color-border: #2c2a2e;       /* border tipis buat card & divider */
+
+  /* aksen - dipakai secukupnya, jangan disebar semua */
+  --color-accent: #d9a441;       /* mustard, warna aksen utama */
+  --color-accent-hover: #c4922f; /* mustard lebih gelap buat hover state */
+
+  /* teks */
+  --color-ink: #f2eee4;          /* teks utama, off-white hangat */
+  --color-muted: #9c978c;        /* teks sekunder / deskripsi */
 }
 
-/* --------------------------------------------------------------------------
-   @layer base — Reset & style dasar HTML yang berlaku global.
-   -------------------------------------------------------------------------- */
 @layer base {
   html {
-    scroll-behavior: smooth; /* supaya navigasi antar section (#about, #projects) mulus */
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-dark text-light; /* background gelap + teks terang di seluruh halaman */
+    @apply bg-bg text-ink;
     font-family: var(--font-body);
   }
 
@@ -45,23 +39,23 @@
   h2,
   h3,
   h4 {
-    font-family: var(--font-heading); /* semua heading pakai font Poppins */
+    font-family: var(--font-heading);
+  }
+
+  /* dipakai di badge tech-stack biar terasa "developer", bukan template SaaS */
+  .font-mono {
+    font-family: var(--font-mono);
   }
 }
 
-/* --------------------------------------------------------------------------
-   @layer utilities — Class custom tambahan yang sering dipakai berulang.
-   -------------------------------------------------------------------------- */
 @layer utilities {
-  /* Container standar tiap section: lebar maksimal + padding kiri-kanan
-     responsif. Dipakai di hampir semua komponen section (Navbar, Hero, dst)
-     supaya konten selalu sejajar/rapi. */
+  /* container standar tiap section - lebar max + padding responsif */
   .section-container {
-    @apply max-w-6xl mx-auto px-6 md:px-8;
+    @apply max-w-5xl mx-auto px-6 md:px-8;
   }
 
-  /* Efek gradient text untuk kata kunci penting (misal nama atau role) */
-  .text-gradient {
-    @apply bg-gradient-to-r from-primary to-indigo-300 bg-clip-text text-transparent;
+  /* offset scroll biar section gak ketutup navbar fixed pas di-klik dari nav */
+  .anchor-offset {
+    scroll-margin-top: 5rem;
   }
 }
