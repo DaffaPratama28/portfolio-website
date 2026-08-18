@@ -25,8 +25,8 @@ export const profile = {
     university: "Universitas Muhammadiyah Pontianak",
     status: { en: "Fresh Graduate", id: "Fresh Graduate" },
     achievement: {
-      en: "2nd Best Graduate — 34th Undergraduate Commencement",
-      id: "Lulusan Terbaik ke-2 — Wisuda Sarjana ke-34",
+      en: "Best Graduate Award, Informatics Engineering (2026) · Ranked 2nd out of 370 university-wide graduates with a 3.94/4.00 GPA",
+      id: "Penghargaan Lulusan Terbaik, Teknik Informatika (2026) · Peringkat ke-2 dari 370 wisudawan universitas dengan IPK 3,94/4,00",
     },
     // cuma tanggal lulus (ijazah) yang ditampilin, sidang & wisuda gak perlu
     graduationDate: "November 2025",
