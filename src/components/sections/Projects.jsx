@@ -3,11 +3,12 @@
 
 import { projects } from "../../data/projects";
 import ProjectCard from "../ui/ProjectCard";
+import SectionHeading from "../ui/SectionHeading";
 import { useLanguage } from "../../i18n/useLanguage";
 
 const content = {
   en: { label: "Featured Projects", heading: "Things I've built" },
-  id: { label: "Featured Projects", heading: "Proyek yang pernah dikerjakan" },
+  id: { label: "Proyek Unggulan", heading: "Proyek yang pernah saya kerjakan" },
 };
 
 export default function Projects() {
@@ -17,12 +18,7 @@ export default function Projects() {
   return (
     <section id="projects" className="anchor-offset py-28 border-b border-border">
       <div className="section-container">
-        <p className="font-mono text-xs text-accent tracking-widest uppercase mb-3">
-          {t.label}
-        </p>
-        <h2 className="font-heading font-bold text-3xl md:text-4xl mb-12 max-w-xl">
-          {t.heading}
-        </h2>
+        <SectionHeading label={t.label} title={t.heading} />
 
         <div className="grid gap-8">
           {projects.map((project) => (

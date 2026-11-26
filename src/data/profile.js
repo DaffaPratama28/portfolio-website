@@ -4,7 +4,7 @@
 // Field yang sifatnya proper noun / data teknis (nama, email, link) tetep
 // string biasa karena gak perlu diterjemahin.
 
-import cvFile from "/src/assets/CV_Daffa_Pratama_2026.pdf";
+import cvFile from "../assets/CV_Daffa_Pratama_2026.pdf";
 
 export const profile = {
   name: "Daffa Pratama",
@@ -17,7 +17,7 @@ export const profile = {
 
   tagline: {
     en: "Building web apps, mobile apps, and machine learning solutions — from idea to deployment.",
-    id: "Membangun aplikasi web, mobile, dan solusi machine learning dari ide sampai deployment.",
+    id: "Membangun aplikasi web, mobile, dan solusi machine learning — dari ide hingga deployment.",
   },
 
   education: {
@@ -28,6 +28,11 @@ export const profile = {
       en: "Best Graduate Award, Informatics Engineering (2026) · Ranked 2nd out of 370 university-wide graduates with a 3.94/4.00 GPA",
       id: "Penghargaan Lulusan Terbaik, Teknik Informatika (2026) · Peringkat ke-2 dari 370 wisudawan universitas dengan IPK 3,94/4,00",
     },
+    // versi ringkas achievement buat Hero, versi lengkapnya di About
+    highlight: {
+      en: "Best Graduate · Ranked 2nd of 370 · GPA 3.94/4.00",
+      id: "Lulusan Terbaik · Peringkat 2 dari 370 · IPK 3,94/4,00",
+    },
     // cuma tanggal lulus (ijazah) yang ditampilin, sidang & wisuda gak perlu
     graduationDate: "November 2025",
   },
@@ -36,7 +41,7 @@ export const profile = {
     { en: "Web Development (Full-stack)", id: "Web Development (Full-stack)" },
     {
       en: "Mobile App Development (Android)",
-      id: "Mobile Apps Development (Android)",
+      id: "Mobile App Development (Android)",
     },
     { en: "Machine Learning", id: "Machine Learning" },
   ],
@@ -50,6 +55,8 @@ export const profile = {
   },
 
   cvUrl: cvFile,
+  // nama file pas diunduh (tanpa hash dari Vite)
+  cvFileName: "CV_Daffa_Pratama_2026.pdf",
 
   navLinks: [
     { href: "#home", label: { en: "Home", id: "Beranda" } },

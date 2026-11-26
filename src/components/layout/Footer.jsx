@@ -1,24 +1,30 @@
 // Footer.jsx
 // Gabungan contact + footer. Cukup CTA email + link sosial (GitHub,
-// LinkedIn) - nomor HP sengaja gak ditampilin di sini, udah ada di CV.
+// LinkedIn) + CV - nomor HP sengaja gak ditampilin di sini, udah ada
+// di CV.
 
 import { profile } from "../../data/profile";
 import { useLanguage } from "../../i18n/useLanguage";
+import SectionHeading from "../ui/SectionHeading";
 
 const content = {
   en: {
     label: "Contact",
     heading: "Let's work together — send an email.",
+    cv: "CV",
     builtWith: "Built with React + Tailwind CSS.",
     deployed: "Deployed on Vercel",
   },
   id: {
     label: "Kontak",
-    heading: "Tertarik kolaborasi? Kirim email aja.",
-    builtWith: "Dibangun pakai React + Tailwind CSS.",
-    deployed: "Deployed on Vercel",
+    heading: "Tertarik berkolaborasi? Silakan kirim email.",
+    cv: "CV",
+    builtWith: "Dibangun dengan React + Tailwind CSS.",
+    deployed: "Di-hosting di Vercel",
   },
 };
+
+const linkClass = "hover:text-accent transition-colors duration-200";
 
 export default function Footer() {
   const { language } = useLanguage();
@@ -28,12 +34,11 @@ export default function Footer() {
   return (
     <footer id="contact" className="anchor-offset py-28 bg-surface">
       <div className="section-container">
-        <p className="font-mono text-xs text-accent tracking-widest uppercase mb-3">
-          {t.label}
-        </p>
-        <h2 className="font-heading font-bold text-3xl md:text-5xl max-w-xl mb-8">
-          {t.heading}
-        </h2>
+        <SectionHeading
+          label={t.label}
+          title={t.heading}
+          className="text-3xl md:text-5xl max-w-xl mb-8"
+        />
 
         <a
           href={`mailto:${profile.socials.email}`}
@@ -47,7 +52,7 @@ export default function Footer() {
             href={profile.socials.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-accent transition-colors duration-200"
+            className={linkClass}
           >
             GitHub
           </a>
@@ -55,9 +60,16 @@ export default function Footer() {
             href={profile.socials.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-accent transition-colors duration-200"
+            className={linkClass}
           >
             LinkedIn
+          </a>
+          <a
+            href={profile.cvUrl}
+            download={profile.cvFileName}
+            className={linkClass}
+          >
+            {t.cv}
           </a>
         </div>
 

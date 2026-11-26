@@ -1,7 +1,9 @@
 // Hero.jsx
 // Section pembuka, left-aligned & text-heavy. Semua string UI lokal
 // disimpan di object `content` di bawah biar gampang dibaca perbedaan
-// versi EN vs ID-nya berdampingan.
+// versi EN vs ID-nya berdampingan. Detail pendidikan & fokus keahlian
+// sengaja gak diulang di sini (udah ada di About) - cukup highlight
+// singkat prestasi.
 
 import { profile } from "../../data/profile";
 import { useLanguage } from "../../i18n/useLanguage";
@@ -10,6 +12,11 @@ const content = {
   en: { viewProjects: "View Projects", downloadCV: "Download CV" },
   id: { viewProjects: "Lihat Proyek", downloadCV: "Unduh CV" },
 };
+
+// kata terakhir nama dikasih warna aksen, sisanya warna biasa
+const nameParts = profile.name.split(" ");
+const lastName = nameParts.pop();
+const firstNames = nameParts.join(" ");
 
 export default function Hero() {
   const { language } = useLanguage();
@@ -26,8 +33,8 @@ export default function Hero() {
         </p>
 
         <h1 className="font-heading font-extrabold text-4xl sm:text-5xl md:text-7xl leading-[1.1] mb-6 max-w-3xl">
-          {profile.name.split(" ")[0]}{" "}
-          <span className="text-accent">{profile.name.split(" ")[1]}</span>
+          {firstNames}{" "}
+          <span className="text-accent">{lastName}</span>
         </h1>
 
         <div className="w-16 h-px bg-accent mb-6" />
@@ -48,20 +55,15 @@ export default function Hero() {
           </a>
           <a
             href={profile.cvUrl}
-            download
+            download={profile.cvFileName}
             className="border border-border hover:border-accent text-ink font-medium px-6 py-3 transition-colors duration-200"
           >
             {t.downloadCV}
           </a>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-x-10 gap-y-3 text-sm text-muted font-mono">
-          <span>
-            {profile.focusAreas.map((area) => area[language]).join(" / ")}
-          </span>
-        </div>
-        <p className="text-sm text-accent font-mono mt-3">
-          {profile.education.achievement[language]}
+        <p className="text-sm text-accent font-mono">
+          {profile.education.highlight[language]}
         </p>
       </div>
     </section>

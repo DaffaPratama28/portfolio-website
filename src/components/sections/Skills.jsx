@@ -5,6 +5,7 @@
 
 import { skillGroups } from "../../data/skills";
 import Badge from "../ui/Badge";
+import SectionHeading from "../ui/SectionHeading";
 import { useLanguage } from "../../i18n/useLanguage";
 
 const content = {
@@ -19,12 +20,7 @@ export default function Skills() {
   return (
     <section id="skills" className="anchor-offset py-28 border-b border-border">
       <div className="section-container">
-        <p className="font-mono text-xs text-accent tracking-widest uppercase mb-3">
-          {t.label}
-        </p>
-        <h2 className="font-heading font-bold text-3xl md:text-4xl mb-12 max-w-xl">
-          {t.heading}
-        </h2>
+        <SectionHeading label={t.label} title={t.heading} />
 
         <div className="grid sm:grid-cols-3 gap-10">
           {skillGroups.map((group) => (
