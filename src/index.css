@@ -46,6 +46,27 @@
   .font-mono {
     font-family: var(--font-mono);
   }
+
+  /* ring fokus keyboard senada tema (cuma muncul pas navigasi keyboard,
+     gak pas diklik mouse) */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  /* hormatin setting "kurangi animasi" di OS pengunjung */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    ::before,
+    ::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
 }
 
 @layer utilities {
