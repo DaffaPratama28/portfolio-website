@@ -4,6 +4,7 @@
 // pas mereka balik lagi ke situs ini nanti.
 
 import { useEffect, useState } from "react";
+import { flushSync } from "react-dom";
 import { LanguageContext } from "./useLanguage";
 
 const STORAGE_KEY = "portfolio-lang";
@@ -37,11 +38,37 @@ export function LanguageProvider({ children }) {
     }
   }, [language]);
 
+  // ganti bahasa pakai View Transitions API: browser nyimpen snapshot
+  // tampilan lama, terus crossfade ke tampilan baru - jadi teks gak
+  // tiba-tiba loncat. Bagian yang gak berubah (background, garis,
+  // gambar) tetep diem, cuma teks yang ganti yang memudar.
+  // flushSync wajib biar DOM baru udah ke-render sebelum snapshot
+  // "sesudah" diambil. Browser yang belum support / pengunjung yang
+  // nyalain "kurangi animasi" -> langsung ganti tanpa transisi.
+  const changeLanguage = (next) => {
+    if (next === language || !SUPPORTED.includes(next)) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (!document.startViewTransition || reduceMotion) {
+      setLanguage(next);
+      return;
+    }
+
+    document.startViewTransition(() => {
+      flushSync(() => setLanguage(next));
+    });
+  };
+
   const toggleLanguage = () =>
-    setLanguage((prev) => (prev === "en" ? "id" : "en"));
+    changeLanguage(language === "en" ? "id" : "en");
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage }}>
+    <LanguageContext.Provider
+      value={{ language, setLanguage: changeLanguage, toggleLanguage }}
+    >
       {children}
     </LanguageContext.Provider>
   );

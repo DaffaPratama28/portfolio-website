@@ -104,6 +104,15 @@
     overflow: hidden;
   }
 
+  /* transisi ganti bahasa (View Transitions API, dipicu dari
+     LanguageContext). Keyframes crossfade bawaan browser tetep dipakai,
+     cuma durasi & easing-nya dibikin sedikit lebih kalem. */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 320ms;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
   /* hormatin setting "kurangi animasi" di OS pengunjung */
   @media (prefers-reduced-motion: reduce) {
     html {
