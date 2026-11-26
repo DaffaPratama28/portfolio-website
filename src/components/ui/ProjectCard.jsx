@@ -56,17 +56,18 @@ export default function ProjectCard({ project }) {
         src={project.cover}
         alt=""
         className={`w-full aspect-video border-b border-border ${
-          isContain ? "object-contain p-10" : "object-cover"
+          isContain ? "object-contain p-8 sm:p-10" : "object-cover"
         }`}
         loading="lazy"
       />
 
-      <div className="p-6 md:p-8">
-        <div className="flex items-start justify-between gap-4 mb-3">
+      <div className="p-5 sm:p-6 md:p-8">
+        {/* di HP label tipe pindah ke atas judul biar judul gak kehimpit */}
+        <div className="flex flex-col-reverse items-start gap-2 mb-3 sm:flex-row sm:justify-between sm:gap-4">
           <h3 className="font-heading font-bold text-xl md:text-2xl">
             {project.title[language]}
           </h3>
-          <span className="font-mono text-[11px] text-muted whitespace-nowrap mt-1">
+          <span className="font-mono text-[11px] text-accent sm:text-muted whitespace-nowrap sm:mt-1">
             {typeLabel}
           </span>
         </div>

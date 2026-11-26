@@ -32,7 +32,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer id="contact" className="anchor-offset py-28 bg-surface">
+    <footer id="contact" className="anchor-offset py-20 md:py-28 bg-surface">
       <div className="section-container">
         <SectionHeading
           label={t.label}
@@ -42,12 +42,12 @@ export default function Footer() {
 
         <a
           href={`mailto:${profile.socials.email}`}
-          className="inline-block font-heading text-xl md:text-2xl text-ink hover:text-accent transition-colors duration-200 break-all mb-14"
+          className="inline-block font-heading text-lg sm:text-xl md:text-2xl text-ink hover:text-accent transition-colors duration-200 [overflow-wrap:anywhere] mb-12 md:mb-14"
         >
           {profile.socials.email}
         </a>
 
-        <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-muted font-mono mb-16">
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-muted font-mono mb-12 md:mb-16">
           <a
             href={profile.socials.github}
             target="_blank"

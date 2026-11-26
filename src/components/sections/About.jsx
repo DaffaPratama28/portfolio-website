@@ -37,7 +37,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="anchor-offset py-28 bg-surface border-b border-border"
+      className="anchor-offset py-20 md:py-28 bg-surface border-b border-border"
     >
       <div className="section-container">
         <SectionHeading

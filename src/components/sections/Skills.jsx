@@ -18,7 +18,7 @@ export default function Skills() {
   const t = content[language];
 
   return (
-    <section id="skills" className="anchor-offset py-28 border-b border-border">
+    <section id="skills" className="anchor-offset py-20 md:py-28 border-b border-border">
       <div className="section-container">
         <SectionHeading label={t.label} title={t.heading} />
 

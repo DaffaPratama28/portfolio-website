@@ -25,9 +25,9 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="anchor-offset min-h-screen flex items-center border-b border-border"
+      className="anchor-offset min-h-svh flex items-center border-b border-border"
     >
-      <div className="section-container py-32">
+      <div className="section-container w-full py-28 md:py-32">
         <p className="font-mono text-xs text-accent tracking-widest uppercase mb-6">
           // {profile.education.status[language]} — {profile.education.university}
         </p>
