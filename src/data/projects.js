@@ -4,6 +4,13 @@
 // { en, id } karena situsnya dwibahasa. techStack dibiarin string biasa
 // karena istilah teknis gak perlu diterjemahin.
 //
+// Link per project (semuanya opsional, kosongin kalau gak ada):
+// - demoUrl     -> tombol "Live Demo" (+ demoNote kalau perlu catatan)
+// - repoUrl     -> tombol "Source Code" ke GitHub
+// - repoPrivate -> true kalau repo-nya private, ditampilin keterangan aja
+// Label pojok kanan card (LIVE DEMO / CASE STUDY / OPEN SOURCE) diturunin
+// otomatis dari field di atas + ada/enggaknya screens.
+//
 // Semua gambar diimport langsung dari assets/images biar ke-bundle Vite.
 // coverFit: "cover" (default, isi penuh & crop) atau "contain" (dipakai
 // buat security_lock.png yang bentuknya ikon, bukan screenshot UI).
@@ -28,8 +35,11 @@ export const projects = [
       en: "Rutan Pontianak Institutional Website",
       id: "Website Profil Instansi Rutan Pontianak",
     },
-    showcaseType: "live-demo",
-    demoUrl: "http://daffapratama-rutanptk-demo.infinityfreeapp.com/",
+    // live demo (InfinityFree) udah down karena inactivity, jadi cukup
+    // link ke source code-nya aja
+    demoUrl: "",
+    repoUrl:
+      "https://github.com/DaffaPratama28/website-profil-rutan-pontianak-demo",
     cover: rutanCover,
     coverFit: "cover",
     description: {
@@ -66,8 +76,10 @@ export const projects = [
       en: "Password Manager App — Diskominfo Kubu Raya",
       id: "Aplikasi Pengelola Sandi — Diskominfo Kubu Raya",
     },
-    showcaseType: "case-study",
     demoUrl: "",
+    // repo-nya private (project instansi), jadi cuma ditandain private
+    repoUrl: "",
+    repoPrivate: true,
     cover: securityLockCover,
     coverFit: "contain",
     description: {
@@ -173,9 +185,15 @@ export const projects = [
       en: "UTI Identification — Stacking Ensemble Learning",
       id: "Identifikasi ISK — Stacking Ensemble Learning",
     },
-    showcaseType: "live-demo",
     demoUrl:
       "https://identifikasi-isk-stackingensemblelearning-rjowaqwsnghnxmqhrrqr.streamlit.app/",
+    // Streamlit Community Cloud nidurin app yang lama gak dibuka
+    demoNote: {
+      en: "Hosted on Streamlit Community Cloud — if the app is asleep, it takes about 30 seconds to wake up.",
+      id: "Di-hosting di Streamlit Community Cloud — kalau aplikasinya sedang tidur, butuh sekitar 30 detik untuk aktif kembali.",
+    },
+    repoUrl:
+      "https://github.com/DaffaPratama28/Identifikasi-ISK-StackingEnsembleLearning",
     cover: iskCover,
     coverFit: "cover",
     description: {
