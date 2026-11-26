@@ -8,7 +8,7 @@
 // coverFit: "cover" (default, isi penuh & crop) atau "contain" (dipakai
 // buat security_lock.png yang bentuknya ikon, bukan screenshot UI).
 
-import rutanCover from "../assets/images/projek_rutan_ptk_cover.png";
+import rutanCover from "../assets/images/projek_rutan_ptk_cover.webp";
 import iskCover from "../assets/images/projek_skripsi_isk_cover.png";
 import securityLockCover from "../assets/images/security_lock.png";
 
