@@ -54,6 +54,11 @@
     outline-offset: 3px;
   }
 
+  /* kunci scroll halaman selama lightbox (<dialog>) kebuka */
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
+
   /* hormatin setting "kurangi animasi" di OS pengunjung */
   @media (prefers-reduced-motion: reduce) {
     html {

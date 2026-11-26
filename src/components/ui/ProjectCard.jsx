@@ -3,13 +3,14 @@
 // - demoUrl     -> tombol keluar ke live demo (+ catatan demoNote)
 // - repoUrl     -> tombol keluar ke source code di GitHub
 // - repoPrivate -> keterangan kalau source code-nya private
-// - screens     -> grid screenshot tiap layar aplikasi (case study)
+// - screens     -> grid screenshot + lightbox (case study, ScreenGallery)
 //
 // coverFit menentukan gimana cover image di-render: "cover" (default,
 // isi penuh & crop) atau "contain" (dipakai kalau covernya berupa ikon/
 // graphic, bukan screenshot UI beneran - biar gak kepotong aneh).
 
 import Badge from "../ui/Badge";
+import ScreenGallery from "../ui/ScreenGallery";
 import { useLanguage } from "../../i18n/useLanguage";
 
 const content = {
@@ -144,26 +145,7 @@ export default function ProjectCard({ project }) {
             <p className="font-mono text-xs text-muted uppercase tracking-widest mb-4">
               {t.screenStructure}
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-              {project.screens.map((screen) => (
-                <figure key={screen.label.en} className="text-left">
-                  <img
-                    src={screen.src}
-                    alt={screen.label[language]}
-                    className="w-full aspect-[9/16] object-cover border border-border mb-2"
-                    loading="lazy"
-                  />
-                  <figcaption>
-                    <span className="block text-sm text-ink font-medium">
-                      {screen.label[language]}
-                    </span>
-                    <span className="block text-xs text-muted mt-0.5">
-                      {screen.description[language]}
-                    </span>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
+            <ScreenGallery screens={project.screens} />
           </div>
         )}
       </div>
