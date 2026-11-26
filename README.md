@@ -25,13 +25,16 @@ src/
 │   │   └── Projects.jsx
 │   └── ui/                     # komponen kecil yang reusable
 │       ├── Badge.jsx
-│       └── ProjectCard.jsx
+│       ├── ProjectCard.jsx
+│       ├── ScreenGallery.jsx   # grid screenshot + lightbox (<dialog>)
+│       └── SectionHeading.jsx
 ├── data/
 │   ├── profile.js              # data pribadi (nama, kontak, pendidikan, dst)
 │   ├── projects.js             # data project buat section Projects
 │   └── skills.js                # data tech stack buat section Skills
 ├── i18n/
-│   └── LanguageContext.jsx     # context EN/ID, dipakai lewat hook useLanguage()
+│   ├── LanguageContext.jsx     # LanguageProvider (simpan pilihan di localStorage)
+│   └── useLanguage.js          # context + hook useLanguage()
 ├── App.jsx
 ├── main.jsx
 └── index.css                    # entry stylesheet + theme token Tailwind (warna, font)
@@ -47,6 +50,22 @@ Semua teks yang tampil ke pengunjung disimpan sebagai object `{ en, id }` di
 `data/profile.js` dan `data/projects.js`, lalu komponen ambil lewat
 `field[language]` (dari `useLanguage()`). Kalau mau nambah teks baru, ikutin
 pola yang sama: buat object `{ en, id }`, jangan hardcode string tunggal.
+
+Atribut `<html lang>` ikut berubah sesuai bahasa aktif.
+
+## Menambah Project
+
+Tambah object baru di `src/data/projects.js`. Field link semuanya opsional:
+
+| Field         | Fungsi                                                        |
+| ------------- | ------------------------------------------------------------- |
+| `demoUrl`     | Tombol "Live Demo" (+ `demoNote` `{ en, id }` kalau perlu)    |
+| `repoUrl`     | Tombol "Source Code" ke GitHub                                |
+| `repoPrivate` | `true` kalau repo private, tampil keterangan aja              |
+| `screens`     | Grid screenshot + lightbox (label `{ en, id }`, rasio 9:16)   |
+
+Label pojok card (LIVE DEMO / CASE STUDY / OPEN SOURCE) otomatis ngikutin
+field di atas. Cover sebaiknya WebP/JPEG ±1200px biar ringan.
 
 ## Menjalankan di Lokal
 
@@ -64,3 +83,12 @@ npm run build
 ## Deploy
 
 Project ini di-deploy ke [Vercel](https://vercel.com/).
+
+Preview link (Open Graph) pakai `public/og-image.png` (1200×630). Kalau domain
+berubah, update juga URL absolut di meta tag `index.html`.
+
+## Lisensi
+
+Kode sumber dirilis di bawah [MIT License](LICENSE). Konten pribadi — CV,
+foto, screenshot project, dan teks profil — **tidak** termasuk dan tetap hak
+milik pemiliknya.
