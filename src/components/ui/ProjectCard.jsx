@@ -9,7 +9,7 @@
 // graphic, bukan screenshot UI beneran - biar gak kepotong aneh).
 
 import Badge from "../ui/Badge";
-import { useLanguage } from "../../i18n/LanguageContext";
+import { useLanguage } from "../../i18n/useLanguage";
 
 const content = {
   en: {

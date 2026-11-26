@@ -3,7 +3,7 @@
 // LinkedIn) - nomor HP sengaja gak ditampilin di sini, udah ada di CV.
 
 import { profile } from "../../data/profile";
-import { useLanguage } from "../../i18n/LanguageContext";
+import { useLanguage } from "../../i18n/useLanguage";
 
 const content = {
   en: {

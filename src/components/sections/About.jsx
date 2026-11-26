@@ -3,7 +3,7 @@
 // tanggal lulus (bukan tanggal sidang/wisuda) sesuai request.
 
 import { profile } from "../../data/profile";
-import { useLanguage } from "../../i18n/LanguageContext";
+import { useLanguage } from "../../i18n/useLanguage";
 
 const content = {
   en: {

@@ -5,7 +5,7 @@
 
 import { skillGroups } from "../../data/skills";
 import Badge from "../ui/Badge";
-import { useLanguage } from "../../i18n/LanguageContext";
+import { useLanguage } from "../../i18n/useLanguage";
 
 const content = {
   en: { label: "Skills", heading: "Tech stack, at a glance" },

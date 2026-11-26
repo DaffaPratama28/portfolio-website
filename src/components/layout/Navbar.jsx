@@ -4,7 +4,7 @@
 
 import { useEffect, useState } from "react";
 import { profile } from "../../data/profile";
-import { useLanguage } from "../../i18n/LanguageContext";
+import { useLanguage } from "../../i18n/useLanguage";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

@@ -3,7 +3,7 @@
 
 import { projects } from "../../data/projects";
 import ProjectCard from "../ui/ProjectCard";
-import { useLanguage } from "../../i18n/LanguageContext";
+import { useLanguage } from "../../i18n/useLanguage";
 
 const content = {
   en: { label: "Featured Projects", heading: "Things I've built" },
