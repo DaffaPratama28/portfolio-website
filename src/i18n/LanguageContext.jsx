@@ -26,6 +26,10 @@ export function LanguageProvider({ children }) {
   const [language, setLanguage] = useState(readStoredLanguage);
 
   useEffect(() => {
+    // <html lang> ikut bahasa aktif biar screen reader pakai pelafalan
+    // yang bener & mesin pencari tau bahasa kontennya
+    document.documentElement.lang = language;
+
     try {
       window.localStorage.setItem(STORAGE_KEY, language);
     } catch {
